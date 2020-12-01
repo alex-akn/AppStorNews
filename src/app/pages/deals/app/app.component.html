@@ -1,0 +1,42 @@
+<ng-container *ngIf="app">
+  <div class="media media-plus">
+    <div class="media-left media-middle">
+      <img [src]="app.icon" class="media-object" alt="">
+    </div>
+    <div class="media-body" style="vertical-align: middle;">
+      <span class="media-heading app-name app-text" style="margin-bottom:0;">{{app.title}}</span>
+      <i class="app-text media-info" style="display:block;">{{app.dev}}</i>
+      <span class="app-text media-info" [style.max-width]="500">
+        <span class="hidden-xs"><b>{{devices[app.device]}}</b> :: Kategorie: </span>
+        {{app.catNames}}
+      </span>
+      <span *ngIf="app.rating" class="media-info" style="font-size:11px">
+        <i class="gold asn-icon" [class.icon-star]="app.rating-1>=0"></i>
+        <i class="gold asn-icon" [class.icon-star]="app.rating-1.8>=0"
+          [class.icon-star-half]="0.3<app.rating-1&&app.rating-1<0.8"></i>
+        <i class="gold asn-icon" [class.icon-star]="app.rating-2.8>=0"
+          [class.icon-star-half]="0.3<app.rating-2&&app.rating-2<0.8"></i>
+        <i class="gold asn-icon" [class.icon-star]="app.rating-3.8>=0"
+          [class.icon-star-half]="0.3<app.rating-3&&app.rating-3<0.8"></i>
+        <i class="gold asn-icon" [class.icon-star]="app.rating-4.8>=0"
+          [class.icon-star-half]="0.3<app.rating-4&&app.rating-4<0.8"></i>
+        <span>({{app.reviews}})</span>
+      </span>
+    </div>
+    <div class="media-right media-middle">
+      <div class=" app-price">
+        <span class="text-success new-price">{{app.newprice}}</span>
+        <ng-container *ngIf="app.oldprice">
+          <span class="text-danger old-price">{{app.oldprice}}</span>
+        </ng-container>
+      </div>
+    </div>
+    <div class="media-right media-middle">
+      <a class="btn btn-link btn-lg padless" href="{{app.link}}" role="button" target="_blank" rel="noopener"
+        aria-label="mehr infos">
+        <span class="asn-icon icon-arrow-forward visible-xs" aria-hidden="true"></span>
+        <span class="hidden-xs">mehr infos</span>
+      </a>
+    </div>
+  </div>
+</ng-container>

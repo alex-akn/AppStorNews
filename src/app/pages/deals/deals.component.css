@@ -1,0 +1,30 @@
+#load-more {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33333;
+}
+
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.slide-wrapper{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-transition: height 300ms linear;
+    transition: height 3000ms linear;
+}
+
+#innerwrapper.slide-wrapper {
+    margin-top: 12px;
+}

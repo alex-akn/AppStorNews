@@ -1,0 +1,39 @@
+<ng-container *ngFor="let app of apps"> 
+    <div class="media media-plus" style="margin-top: 0px;">
+        <div class="media-left media-middle hidden-xs">
+            <div class="hidden-xs" style="width:70px; margin: 22.5px 0;">
+                <b class="rank">{{app.rank}}</b >
+                <span class="direction" [class]="app.class"> 
+                {{app.arrow}}
+                </span>
+                <span class="change" >{{app.change}}</span>
+            </div>
+        </div>
+        <div class="media-left media-middle">
+            <img [src]="app.icon" class="media-object-small" alt="">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading app-name app-text" style="margin-bottom:0;"
+            >
+            <span class="visible-xss">{{app.rank}}<span class="{{app.class}}">
+                {{app.arrow}}</span><span [class.change]="app.change>0" >{{app.change}}</span></span>
+            {{app.title}}</h4>
+            <i class="app-text media-info" style="display:block;">{{app.dev}}</i>
+            <span class="app-text media-info" >                        
+                {{app.catNames}}
+            </span>
+            
+        </div>
+        <div class="media-right media-middle">
+            <div class=" app-price">
+            <span class="text-success new-price">{{app.newprice}}</span>                     
+            </div>      
+        </div>
+        <div class="media-right media-middle">
+            <a class="btn btn-link btn-lg padless" href="{{app.link}}" role="button" target="_blank" rel="noopener" aria-label="mehr infos">
+                <span class="asn-icon icon-arrow-forward visible-xs" aria-hidden="true"></span>
+                <span class="hidden-xs">mehr infos</span>
+            </a>
+        </div>
+    </div>      
+</ng-container>

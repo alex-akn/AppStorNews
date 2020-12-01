@@ -1,0 +1,42 @@
+
+  <div >      
+    <input #search (keyup.enter)="onSearch(search.value);"
+                   type="text" placeholder="Suchen" />      
+  </div>
+
+    <p *ngFor="let app of watchlist">
+      {{app.id}}
+    </p>
+
+    <ng-container *ngIf="(searchlist$ | async) === null">
+      Loading data...
+    </ng-container>
+
+
+    <div class="media media-plus" *ngFor="let obj of searchlist$ | async">
+
+    <div class="media-left media-middle">
+        <img [src]="obj.artworkUrl60" class="media-object-small" alt="">
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading app-name app-text" style="margin-bottom:0;"
+        >{{obj.trackName}}</h4>
+        <i class="app-text media-info" style="display:block;">{{obj.artistName}}</i>
+        <span class="app-text media-info" >                        
+            {{obj.genres}}
+        </span>        
+    </div>
+    <div class="media-right media-middle">
+        <div class=" app-price">
+        <span class="text-success new-price">{{obj.formattedPrice}}</span>                     
+        </div>      
+    </div>
+    <div class="media-right media-middle">
+        <a class="btn btn-link btn-lg padless" href="{{obj.trackViewUrl}}" role="button" target="_blank" rel="noopener" aria-label="mehr infos">
+            <span class="asn-icon icon-arrow-forward visible-xs" aria-hidden="true"></span>
+            <span class="hidden-xs">mehr infos</span>
+        </a>
+        <button (click)="addToWatchlist(obj.trackId)">+ To Watchlist</button>
+    </div>
+    </div>
+  

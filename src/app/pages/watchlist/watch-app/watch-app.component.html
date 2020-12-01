@@ -1,0 +1,27 @@
+<div class="media media-plus" >
+
+    <div class="media-left media-middle">
+        <img [src]="app.artworkUrl60" class="media-object-small" alt="">
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading app-name app-text" style="margin-bottom:0;"
+        >{{app.trackName}}</h4>
+        <i class="app-text media-info" style="display:block;">{{app.artistName}}</i>
+        <span class="app-text media-info" > <b>{{ app.device }} :: </b>                      
+            {{app.genres.join(', ')}}
+        </span>        
+    </div>
+    <div class="media-right media-middle">
+        <div class=" app-price">
+        <span class="text-success new-price">{{app.formattedPrice}}</span>                     
+        </div>      
+    </div>
+    <div class="media-right media-middle">
+        <a mat-stroked-button class="wl-app-btn" href="{{app.trackViewUrl}}" role="button" target="_blank" rel="noopener" aria-label="mehr infos">
+            <span class="asn-icon icon-arrow-forward visible-xs" aria-hidden="true"></span>
+            <span class="hidden-xs">mehr infos</span>
+        </a>
+        <button mat-stroked-button color="primary" class="wl-app-btn" *ngIf="!app.inWatchlist" (click)="add()">+ To Watchlist</button>
+        <button mat-stroked-button color="warn" class="wl-app-btn" *ngIf="app.inWatchlist" (click)="remove()">- From Watchlist</button>
+    </div>
+    </div>

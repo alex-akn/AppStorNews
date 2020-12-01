@@ -1,0 +1,25 @@
+.asn-ad-wrapper{
+    display: flex;
+    margin: 40px 0;
+}
+
+.asn-ad-whitespace{
+    flex: 0 1 242px;
+}
+
+.asn-ad-segment{
+    flex: 1;
+}
+
+@media (min-width: 992px){
+    .asn-ad-segment {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 991px){
+    .asn-ad-whitespace {
+        display: none;
+        visibility: hidden;
+    }
+}

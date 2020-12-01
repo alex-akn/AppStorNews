@@ -1,0 +1,54 @@
+<mat-toolbar color="primary" class="icons-navbar">
+  <mat-toolbar-row>    
+    <ng-container *ngIf="!mobile_mode">
+      <img src="assets/img/logo.png" height="32px" alt="AppStorNews Logo">
+      <span class="navbar-title">AppStorNews</span>
+      <div>
+        <a mat-button routerLink="/deals">iOS Angebote</a>
+        <a mat-button routerLinkActive="active" routerLink="/deals-mac">Mac Angebote</a>
+        <a mat-button routerLink="/top-apps">Top-Apps</a>
+        <a mat-button routerLink="/new-apps">Neuerscheinungen</a>
+        <!--<a mat-button routerLink="/watchlist" routerLinkActive="active">Watchlist</a>-->
+      </div>
+    </ng-container>
+    <ng-container *ngIf="mobile_mode">
+      <span class="navbar-spacer"></span>
+      <span class="navbar-title">{{ title }}</span>
+    </ng-container>
+    <span class="navbar-spacer"></span>
+    <!--<mat-form-field class="example-form-field">
+        <mat-label>Suchen</mat-label>
+        <input matInput type="search" (keyup.enter)="search(search.value);" #search>
+        <button mat-button *ngIf="search.value" matSuffix mat-icon-button aria-label="Clear" (click)="search.value=''">
+          <mat-icon>&#x26CC;</mat-icon>
+        </button>
+    </mat-form-field>-->
+    <div class="search-form-container" [class.search-form-container-open]="opened_mob">      
+      <input #search [class.search-contracted]='!expanded'
+                     (focus)="expanded=true"
+                     (blur)="expanded=false"
+                     (keyup.enter)="handleSearch(search.value);"
+                     matInput type="text" placeholder="Suchen" />
+      <button mat-button *ngIf="search.value || mobile_mode" matSuffix mat-icon-button aria-label="Clear" (click)="handleClose();search.value='';search.focus()">
+        <mat-icon fontSet="asn-icon" class="search-form__close-icon" [class.search-form__close-icon--rotate]="opened_mob">close</mat-icon>
+      </button>      
+    </div>
+    <button mat-icon-button *ngIf="!mobile_mode" (click)="handleSearch(search.value)" aria-label="navbar button">
+      <mat-icon fontSet="asn-icon">search</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="mobile_mode" (click)="handleMore()" aria-label="navbar button">
+      <mat-icon fontSet="asn-icon">more_horiz</mat-icon>
+    </button>
+    <button mat-icon-button class="navbar-button" (click)="handleShare()" aria-label="navbar button">
+      <mat-icon fontSet="asn-icon">share</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="mobile_mode" (click)="handleAnotherSearch();search.focus()" aria-label="navbar button">
+      <mat-icon fontSet="asn-icon">search</mat-icon>
+    </button>
+  
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="show_second_row">   
+    <a mat-button class="second-row-button"  *ngFor="let tab of tabset" routerLink={{tab.link}}>{{tab.value}}</a>    
+  </mat-toolbar-row>
+</mat-toolbar>

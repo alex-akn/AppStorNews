@@ -1,0 +1,16 @@
+<mat-form-field class="example-form-field">
+    <mat-label>Suchen</mat-label>
+    <input matInput type="search" #search>
+    <button mat-button *ngIf="search.value" matSuffix mat-icon-button aria-label="Clear" (click)="search.value=''">
+      <mat-icon>&#x26CC;</mat-icon>
+    </button>
+</mat-form-field>
+<!--<div class="search-form-container">
+  <input #search (focus)="search.style.width='100%'" matInput type="text" placeholder="Suchen" />
+  <button mat-button *ngIf="search.value" matSuffix mat-icon-button aria-label="Clear" (click)="search.value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>-->
+<button mat-icon-button class="example-icon" (click)="search()" aria-label="navbar button">
+  <mat-icon>search</mat-icon>
+</button>

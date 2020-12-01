@@ -1,0 +1,27 @@
+<button mat-button (click)="handleCatOpen()" *ngIf="!isCatVisible&&tabletQuery.matches" class="toggle-cat" [class.sr-only]="search_box_open"
+  aria-label="navbar button">
+  <mat-icon fontSet="asn-icon">arrow_back</mat-icon>
+  {{ smallQuery.matches ? "" : "Kategorien" }}
+</button>
+<button mat-button (click)="handleCatSelected()" *ngIf="isCatVisible&&tabletQuery.matches" class="toggle-cat" [class.sr-only]="search_box_open"
+  aria-label="navbar button">
+  <mat-icon fontSet="asn-icon">close</mat-icon>
+  {{ smallQuery.matches ? "" : "Beenden" }}
+</button>
+
+<div id="mainwrapper" class="slide-wrapper">
+  <div id="left-side" class="mov" [class.hidden]="hide_menu" [class]="classSet1" (transitionend)="onTransitionEnd()">
+    <sidemenu [dest]="destination" (catSelected)="handleCatSelected()">
+    </sidemenu>    
+  </div>
+  <div *ngIf="tabletQuery.matches&&!mobileQuery.matches" class="overlay" [class.vis]="showOverlay" (click)="handleCatSelected()"></div>
+  <div id="right-side" class="mov" [class]="classSet2" (transitionend)="onTransitionEnd()">
+    <div class="content_wrapper">
+      <pricetabs [dest]="destination"></pricetabs>
+      <ng-content>
+      </ng-content>
+    </div>
+  </div>
+</div>
+
+

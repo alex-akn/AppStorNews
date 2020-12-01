@@ -1,0 +1,4 @@
+<mat-tab-group (selectedIndexChange)="onSelectPrice($event);" color="primary" mat-stretch-tabs class="extra-stretch">
+  <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">    
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,127 @@
+.toggle-cat{
+    position: fixed;
+    top: 12px;
+    left: 2px;
+    color: white;
+    z-index: 3;
+}
+
+.toggle-cat mat-icon{
+    margin: 0 -8px 0 -10px;
+}
+@media (max-width: 373px){
+    .toggle-cat {
+        margin-left: -8px;
+    }
+}
+
+.sr-only {
+    position: absolute; 
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.slide-wrapper{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-transition: height 300ms linear;
+    transition: height 300ms linear;
+}
+
+
+
+.mov.sliding {
+    position:absolute;
+    top:0px;
+}
+.mov.vis{
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+.mov{
+    -webkit-transition: -webkit-transform 300ms linear;
+    transition: transform 300ms linear;        
+}
+.mov.toleft{
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.mov.toright{
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+
+@media (min-width:992px){
+    #mainwrapper.slide-wrapper{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        -webkit-transition: height 300ms linear;
+        transition: height 3000ms linear;
+    }
+
+    #right-side {
+        flex: 1 1 auto;
+        background-color: #fafafa;
+    }
+    #left-side {
+        flex-basis: 300px;
+    }
+
+    #left-side, #right-side {
+        padding: 0 15px;
+    }
+}
+@media (min-width:768px){
+    #right-side {
+        width: 100%;
+    }
+    #left-side {
+        width: 242px;
+    }
+
+    .sidenav-fixed {
+        display: block;
+        position: fixed;
+        overflow-y: auto;
+        top: 0;
+        bottom: 0;
+        z-index: 3;
+        outline: 0;
+        background-color: #fff;
+        margin-top: 64px;
+    }
+
+    .single-margin{
+        margin-top: 64px;
+    }
+
+    .double-margin{
+        margin-top: 128px;
+    }
+}
+@media (max-width:767px){
+    #left-side, #right-side {
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 991px){
+    #mainwrapper.slide-wrapper {
+        margin-top: 15px;
+    }
+}

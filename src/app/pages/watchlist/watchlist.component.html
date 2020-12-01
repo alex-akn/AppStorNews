@@ -1,0 +1,32 @@
+
+  <div >      
+    <input #search (keyup.enter)="onSearch(search.value);"
+                   type="text" placeholder="Suchen" />      
+  </div>
+
+  <watchlist-app *ngFor="let obj of watchlist" [app]="obj"
+  (addRequest)="addToWatchlist($event)"
+  (removeRequest)="removeFromWatchlist($event)"></watchlist-app>
+
+    <ng-container *ngIf="!iosApps">
+      Loading data...
+    </ng-container>
+    <div *ngIf="showSearchResults">
+      <mat-tab-group>
+        <mat-tab label="iPhone Apps">
+          <watchlist-app *ngFor="let obj of iosApps" [app]="obj"
+            (addRequest)="addToWatchlist($event)"
+            (removeRequest)="removeFromWatchlist($event)"></watchlist-app>
+        </mat-tab>
+        <mat-tab label="Mac Apps">
+          <ng-template matTabContent>
+            <watchlist-app *ngFor="let obj of macApps" [app]="obj"
+              (addRequest)="addToWatchlist($event)"
+              (removeRequest)="removeFromWatchlist($event)"></watchlist-app>
+          </ng-template>       
+        </mat-tab>
+      </mat-tab-group>     
+    </div>
+    
+    
+  

@@ -1,0 +1,16 @@
+
+<asn-slider [destination]="destination">
+  <div id="innerwrapper" class="slide-wrapper">
+    <div id="listOne" (@listState.start)="animStartedHandler($event)" (@listState.done)="animDoneHandler($event)"
+      [@listState]="listOneState" [class.sr-only]="!sliding&&listOneState=='void'">
+      <app-chart [apps]="listOne"></app-chart>
+    </div>
+    <div id="listTwo" [@listState]="listTwoState" [class.sr-only]="!sliding&&listTwoState=='void'">
+      <app-chart [apps]="listTwo">
+      
+      </app-chart>
+    </div>
+  </div>
+  <div style="width: 100%;padding: 10px;">
+    <button mat-raised-button id="load-more" color="primary" (click)="loadMore(limit)" [disabled]="loading">Mehr Laden</button></div>
+</asn-slider>

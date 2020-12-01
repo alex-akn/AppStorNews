@@ -1,0 +1,12 @@
+<!--
+<ng-container *ngFor="let app of apps">
+    <ng-container *ngIf="app.isActive && isGoodPrice(app.newprice)">
+        <app-detail [app]="app" ></app-detail>
+    </ng-container>
+</ng-container>
+-->
+<ng-container *ngFor="let app of apps">    
+    <div [@appState]="app.state" [class.sr-only]="whatToShow(app.visible)">
+        <app-detail [app]="app" ></app-detail>
+    </div>
+</ng-container>
