@@ -40,7 +40,7 @@ export class SidemenuComponent implements OnInit, OnDestroy {
 
   getCategories(isMac: boolean): Cat[]{
     return CATEGORIES.filter(cat => {
-        return cat.id < 12000;
+        return cat.id < 12000 && cat.show;
         //if(isMac) {return cat.id>=12000 || cat.id===0;}
         //else { return cat.id<12000; }
     });

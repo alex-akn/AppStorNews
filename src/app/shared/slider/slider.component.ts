@@ -126,10 +126,6 @@ export class SliderComponent implements OnInit, OnDestroy {
   }
 
 
-  myFunc(){
-    console.log("HOORAY");
-  }
-
   ngOnDestroy(){
     this.subscription1.unsubscribe();
     this.subscription2.unsubscribe();

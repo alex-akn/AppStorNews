@@ -64,14 +64,12 @@ footer li {
 .asn-footer-logo span {    
     display: inline-block;
     line-height: 50px;
-    margin: 0 40px;
+    margin: 0 30px;
     vertical-align: bottom;
-}
-
-.asn-footer-logo span a {
     font-size: 16px;
     padding: 0;
 }
+
 
 .asn-footer-site-logo{
     height: 50px;

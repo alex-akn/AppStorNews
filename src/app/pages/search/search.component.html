@@ -11,7 +11,7 @@
       <div class="search-list" *ngFor="let app of apps">
         <app-detail [app]="app" ></app-detail> 
     </div>
-    <button mat-button (click)="goBack()" class="search-goback" *ngIf="!search_box_open" aria-label="navbar button">
+    <button mat-button (click)="goBack()" class="search-goback" *ngIf="!search_box_open" aria-label="navbar button" i18n>
       <mat-icon fontSet="asn-icon">arrow_back</mat-icon>
       Back
     </button>

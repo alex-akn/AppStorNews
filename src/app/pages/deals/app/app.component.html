@@ -7,7 +7,7 @@
       <span class="media-heading app-name app-text" style="margin-bottom:0;">{{app.title}}</span>
       <i class="app-text media-info" style="display:block;">{{app.dev}}</i>
       <span class="app-text media-info" [style.max-width]="500">
-        <span class="hidden-xs"><b>{{devices[app.device]}}</b> :: Kategorie: </span>
+        <span class="hidden-xs" i18n><b>{{devices[app.device]}}</b> :: Kategorie: </span>
         {{app.catNames}}
       </span>
       <span *ngIf="app.rating" class="media-info" style="font-size:11px">
@@ -35,7 +35,7 @@
       <a class="btn btn-link btn-lg padless" href="{{app.link}}" role="button" target="_blank" rel="noopener"
         aria-label="mehr infos">
         <span class="asn-icon icon-arrow-forward visible-xs" aria-hidden="true"></span>
-        <span class="hidden-xs">mehr infos</span>
+        <span class="hidden-xs" i18n>mehr infos</span>
       </a>
     </div>
   </div>

@@ -20,7 +20,7 @@ export class IntercomService {
   secondRowShown$ = this.secondRowShownSource.asObservable();
 
   constructor() { 
-    console.log('Service Created');
+    //console.log('Service Created');
     window.addEventListener("resize", () => this.onResize());
   }
 

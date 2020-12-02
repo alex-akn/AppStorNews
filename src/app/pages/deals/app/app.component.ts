@@ -7,7 +7,7 @@ import  App  from '../../../models/app';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']  
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent {
   @Input() app: App;
   devices = [ 'iPhone', 'iPad', 'iOS Universal', 'Mac'];
   constructor() {
@@ -15,7 +15,7 @@ export class AppComponent implements OnDestroy {
       
   }
 
-  ngOnDestroy(){
-    console.log(`app ${this.app.id} (${this.app.state}) destoyed`);
-  }
+  // ngOnDestroy(){
+  //   console.log(`app ${this.app.id} (${this.app.state}) destoyed`);
+  // }
 }

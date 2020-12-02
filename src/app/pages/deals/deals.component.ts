@@ -1,9 +1,9 @@
-import { OnInit, Component, OnDestroy } from '@angular/core';
+import { OnInit, Component, OnDestroy/*, OnChanges, AfterViewChecked*/ } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 
 import { ActivatedRoute } from '@angular/router';
 
-import { Subscription, Observable, Subject } from 'rxjs';
+import { Subscription, Subject } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 import { BackendService } from '../../services/backend.service';
@@ -18,14 +18,13 @@ import { CATEGORIES, SUBCATEGORIES } from '../../models/categories';
 import { listAnimation } from '../../shared/animations';
 
 
-
 @Component({
   selector: 'app-deals',
   templateUrl: './deals.component.html',
   styleUrls: ['./deals.component.css'],
   animations: [ listAnimation ]
 })
-export class DealsComponent implements OnInit, OnDestroy {
+export class DealsComponent implements OnInit, OnDestroy/*, OnChanges, AfterViewChecked*/ {
   device: number = 2;
   genre: number = 0;
   price: number = 0;
@@ -57,26 +56,37 @@ export class DealsComponent implements OnInit, OnDestroy {
     private meta: MetaService
   ) {
 
-    this.resubscribe();    
+    this.resubscribe();
 
-    this.subscription1 = this.intercom.paramAdded$
-    .subscribe(this.handleAddedParams.bind(this));
-
-    //Since this component is used for 3 routes
-    //it needs to know wich one is current
-    this.subscription2 = this.activatedRoute.url.pipe(map(url => url[0].path))
-    .subscribe(this.initializeComponent.bind(this));
-    
-    this.intercom.newWidth$.subscribe(w => {
+    this.subscription2 = this.intercom.newWidth$.subscribe(w => {
       this.mobileMode = w < 768 ? true : false;
+      this.limit = this.mobileMode ? 10 : 15;
     })
+    
+    this.subscription1 = this.intercom.paramAdded$
+    .subscribe(this.handleAddedParams.bind(this));   
+        
   }
 
   ngOnInit() {
     if(this.apps === undefined){
       this.apps = [];
     }    
+    //Since this component is used for 3 routes
+    //it needs to know wich one is current
+    this.activatedRoute.url.pipe(map(url => url[0].path))
+    .subscribe(this.initializeComponent.bind(this));
+
   }
+
+  // ngOnChanges(){
+  //   console.log('Something has changed')
+  // }
+
+  // ngAfterViewChecked(){
+  //   //this.dat = new Date();
+  //   console.log('After View Checked');
+  // }
   
 
   resubscribe(){
@@ -87,7 +97,7 @@ export class DealsComponent implements OnInit, OnDestroy {
     .subscribe(
       next => this.prepareApps(next),
       err => {        
-        console.log('error:', err)
+        //console.log('error:', err)
         this.loading = false;
         this.resubscribe();
       },
@@ -203,7 +213,7 @@ export class DealsComponent implements OnInit, OnDestroy {
 
 
   appAnimationDone(removeApps: boolean = true){
-    console.log('App animation done' , removeApps);
+    //console.log('App animation done' , removeApps);
     if(removeApps) {
       this.removeInactiveApps();
     } 
@@ -242,13 +252,12 @@ export class DealsComponent implements OnInit, OnDestroy {
   }
 
   getMoreApps(param:number){
-    console.log("Get more apps");
-    return this.backend.getMoreApps(this.prepareParams(param));
+        return this.backend.getMoreApps(this.prepareParams(param));
   }
 
   //Handle raw app data returned by backend service
   prepareApps(data: App[]){
-    console.log(data);
+    //console.log(data);
     if(this.apps === undefined) this.apps = [];
     data.forEach((app:App) => {
       if(this.apps.every(a => a.id != app.id)) { 
@@ -292,7 +301,6 @@ export class DealsComponent implements OnInit, OnDestroy {
   }
 
   animDoneHandler($e:AnimationEvent){
-    console.log($e.fromState);
     if($e.fromState === 'initial' || $e.toState === 'initial') { return; }
     
     this.sliding = false;
@@ -355,7 +363,6 @@ export class DealsComponent implements OnInit, OnDestroy {
   
   //Emits a new value from loadMoreSource observable
   loadMore(num:number){   
-    console.log("loadMore") 
     this.moreSource.next(num);
     this.loading = true;
   }
@@ -366,6 +373,6 @@ export class DealsComponent implements OnInit, OnDestroy {
     this.subscription1.unsubscribe();
     this.subscription2.unsubscribe();
 
-    console.log('DealsComponent destroyed');
+    //console.log('DealsComponent destroyed');
   }
 }

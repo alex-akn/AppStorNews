@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { TopmenuComponent, } from './topmenu/topmenu.component';
-import { SocialShareComponent, } from './topmenu/socialshare.component';
+//import { SocialShareComponent, } from './topmenu/socialshare.component';
 
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { FooterComponent } from './footer/footer.component';
@@ -17,7 +17,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatInputModule} from '@angular/material/input';
 //import {MatRippleModule} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+//import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatListModule} from '@angular/material/list';
 import { SliderComponent } from './slider/slider.component';
 import { TitleComponent } from './title/title.component';
@@ -34,16 +34,16 @@ import { AdSegmentComponent } from './ad-segment/ad-segment.component';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    MatBottomSheetModule,
+    //MatBottomSheetModule,
     MatListModule,
     MatProgressSpinnerModule,
     //MatRippleModule,
   ],
-  declarations: [TopmenuComponent, SocialShareComponent, SidemenuComponent, FooterComponent, PricetabsComponent, SliderComponent, TitleComponent, AdSegmentComponent,/* SearchboxComponent*/],
+  declarations: [TopmenuComponent, /*SocialShareComponent,*/ SidemenuComponent, FooterComponent, PricetabsComponent, SliderComponent, TitleComponent, AdSegmentComponent,/* SearchboxComponent*/],
   exports: [ 
     MatButtonModule,
     TopmenuComponent,
-    SocialShareComponent,
+    //SocialShareComponent,
     SidemenuComponent,
     FooterComponent,
     PricetabsComponent,

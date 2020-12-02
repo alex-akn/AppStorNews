@@ -1,5 +1,5 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
-@import "assets/style.css";
+@import "font.css";
 
 
 
@@ -571,10 +571,12 @@ span.media-info {
         padding: 15px 15px;
         margin: 6px;        
         text-align: center;
+        vertical-align: middle;
         font-size: 21px;        
     }
     .cat-all:first-child {
-        background-color: #bbb;
+        background-image: linear-gradient(60deg, #B45FE0, #64D0D1);
+        color: #fff;
     }
     .cat-all.active {
         box-shadow: 0 0 10px 3px rgb(61, 197, 249);
@@ -582,15 +584,17 @@ span.media-info {
     
 
     .cat-games{
-        background: -webkit-linear-gradient(#F99D01, #F87E00);
-        background: -moz-linear-gradient(#F99D01, #F87E00);
-        background: -o-linear-gradient(#F99D01, #F87E00);
-        background: linear-gradient(#F99D01, #F87E00);   
-        color:#fff;         
+        background-color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 48px;        
+        color:rgb(119,223,252);
+        font-weight: 900;
+        font-variant: small-caps;
+        text-transform: lowercase;
     }
     .cat-books{
         background-image: url(/assets/img/_books.jpg);
-        color: #786D51;  
+        color: #333;
     }
     .cat-utilities{
         background-image: url(/assets/img/_utilities.jpg); 
@@ -682,6 +686,16 @@ span.media-info {
         color:#000;  
     }
     .cat-social{
+        background-image: url(/assets/img/_social.jpg);
+        color:#fff; 
+    }
+
+    .cat-graphic{
+        background-image: url(/assets/img/_social.jpg);
+        color:#fff; 
+    }
+
+    .cat-devtools{
         background-image: url(/assets/img/_social.jpg);
         color:#fff; 
     }

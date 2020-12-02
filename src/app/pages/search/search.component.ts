@@ -7,8 +7,8 @@ import {
   Subscription
 } from 'rxjs';
 import {
-  debounceTime,
-  distinctUntilChanged,
+  //debounceTime,
+  //distinctUntilChanged,
   switchMap,
   distinct
 } from 'rxjs/operators';
@@ -54,15 +54,12 @@ export class SearchComponent implements OnInit, OnDestroy {
     private intercom: IntercomService,
     private location: Location
   ) {
-    console.log("In constructor");
     this.loading = true;
     this.route.paramMap.pipe(
       distinct((p: ParamMap) => {
-        console.log('COMPARISON', p.get("what"));
         return p.get("what");
       }),
       switchMap((params: ParamMap) => {
-        console.log("Should be here once", params);
         this.loading = true;
         this.apps = [];
         const where = params.get('where') || "deals";
@@ -87,7 +84,6 @@ export class SearchComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    console.log("Init Search Init");
 
     this.intercom.setNewTitle(this.title);
   }
@@ -106,7 +102,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   prepareApps(data: App[]) {
     if (this.apps === undefined) this.apps = [];
-    console.log('DATA', data);
+    
     if (Array.isArray(data)) {
       let count = data.length;
       this.message = count > 0 ? `Ihre Suche nach "${this.what}" ergab ${count}Treffer` : "Keine Ergebnisse gefunden";

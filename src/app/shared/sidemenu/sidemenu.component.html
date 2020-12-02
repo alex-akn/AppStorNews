@@ -1,10 +1,10 @@
 <div class="sidebar" >
   <ng-container *ngIf="dest!=='deals-mac' && !isMobileModeOn">
-  <h3>Device</h3>
+  <h3 i18n>Device</h3>
   <ul class="list-group">
     <li class="cat-all"
     [class.active]="device===2" *ngIf="dest!=='top-apps'"
-    (click)="onSelectDevice(2); $event.stopPropagation()">
+    (click)="onSelectDevice(2); $event.stopPropagation()" i18n>
        iPhone und iPad
     </li>
     <li class="cat-all"
@@ -24,7 +24,7 @@
     </li>           
   </ul>
   </ng-container>
-  <h3><span *ngIf="!isMobileModeOn">Kategorien</span>&nbsp;</h3>
+  <h3><span *ngIf="!isMobileModeOn" i18n>Kategorien</span>&nbsp;</h3>
   <ul class="list-group">
     <li *ngFor="let cat of categories"
     class="cat-all {{cat.class}}"

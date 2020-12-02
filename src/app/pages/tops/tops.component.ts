@@ -100,7 +100,7 @@ export class TopsComponent implements OnInit, OnDestroy {
           if(this.device != j) { flag = true; this.device = j;}
           break;
         default:
-          console.log("Strange Param :: ", param);
+          
       }
     });
 
@@ -156,7 +156,6 @@ export class TopsComponent implements OnInit, OnDestroy {
             
     });
     this.loading = false;
-    console.log(this.listOne, this.listTwo);
   }
 
 
@@ -173,7 +172,7 @@ export class TopsComponent implements OnInit, OnDestroy {
     this.sliding = false;
   }
   animStartedHandler($e:AnimationEvent){
-    console.log($e.fromState, $e.toState);
+    //console.log($e.fromState, $e.toState);
   }
 
 
@@ -219,6 +218,6 @@ export class TopsComponent implements OnInit, OnDestroy {
     // prevent memory leak when component destroyed
     this.subscription.unsubscribe();
     
-    console.log('TopsComponent destroyed');
+    //console.log('TopsComponent destroyed');
   }
 }

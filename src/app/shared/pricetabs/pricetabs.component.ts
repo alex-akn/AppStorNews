@@ -17,7 +17,6 @@ export class PricetabsComponent implements OnInit {
   constructor(private intercom: IntercomService) { }
 
   ngOnInit() {
-    console.log("PRICETABS :: ", this.dest);
     this.intercom.newWidth$.subscribe(w => {      
         this.tabset1[2] = w < 600 ? 'REDUZIERTE' : 'REDUZIERTE APPS';      
     });

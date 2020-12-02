@@ -16,7 +16,7 @@ interface AppleSearchObject {
 @Injectable()
 export class BackendService {
 
-  private thatUrl = 'https://appstor.news/getApps.php';
+  private thatUrl = 'https://appstor.news/api/';
   //private thatUrl = 'http://localhost:4200/test.html';
   private headers: any;
 
@@ -24,7 +24,7 @@ export class BackendService {
 
   private mapResults(resp: HttpResponse<any>){
     const msg = resp.body.message;
-    console.log(msg);
+  
     if (msg != 'OK') {
       throw new TypeError('thrown in mapResults: ' + msg);
     }
@@ -36,7 +36,6 @@ export class BackendService {
   }
 
   getMoreApps(params: Param[]):Observable<App[]> {
-    console.log(params);
     let getParams = params.reduce((acc:string, param) => {
       acc = acc == '' ? '?' : acc + '&';      
       return acc+param.name + '=' + param.value;
@@ -62,7 +61,7 @@ export class BackendService {
 
   private mapResultsFromApple(resp: any){
     
-    console.log(resp);
+    //console.log(resp);
     
     /*const keys = resp.headers.keys();
     this.headers = keys.map(key =>
@@ -87,13 +86,14 @@ export class BackendService {
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.log(error);
+    //console.log(error);
     if (error.error instanceof ErrorEvent) {
       // A client-side error occurred..
       console.error('An error occurred:', error.error.message);
     } else if (error.error instanceof ProgressEvent){
       // Some kind of network error
       console.error('Network error: ');
+      alert("Netzwerkfehler");
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong,

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
-import {SocialShareComponent} from './socialshare.component'
+//import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
+//import {SocialShareComponent} from './socialshare.component'
 
 import { IntercomService } from '../../services/intercom.service'
 
 
 
-const tabset1 = ["Angobote", "Top Apps", "Neuerscheinungen"];
+//const tabset1 = ["Angebote", "Top Apps", "Neuerscheinungen"];
 
 @Component({
   selector: 'navigation',
@@ -21,13 +21,13 @@ export class TopmenuComponent implements OnInit{
   opened_mob: boolean
   title: string = "";
   tabset = [
-    { value: "Angobote", link: "/deals"},
+    { value: "Angebote", link: "/deals"},
     { value: "Top Apps", link: "/top-apps"},
     { value: "Neuerscheinungen", link: "/new-apps"}
   ];
 
   constructor(
-    private _bottomSheet: MatBottomSheet,
+    //private _bottomSheet: MatBottomSheet,
     private router: Router,
     private intercom: IntercomService
   ) {
@@ -65,7 +65,7 @@ export class TopmenuComponent implements OnInit{
 
 
   handleShare(): void {
-    this._bottomSheet.open(SocialShareComponent);  
+    //this._bottomSheet.open(SocialShareComponent);  
   }
 
 

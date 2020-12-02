@@ -1,13 +1,13 @@
 <mat-toolbar color="primary" class="icons-navbar">
   <mat-toolbar-row>    
     <ng-container *ngIf="!mobile_mode">
-      <img src="assets/img/logo.png" height="32px" alt="AppStorNews Logo">
+      <img src="/assets/img/logo.png" height="32px" alt="AppStorNews Logo">
       <span class="navbar-title">AppStorNews</span>
       <div>
-        <a mat-button routerLink="/deals">iOS Angebote</a>
-        <a mat-button routerLinkActive="active" routerLink="/deals-mac">Mac Angebote</a>
-        <a mat-button routerLink="/top-apps">Top-Apps</a>
-        <a mat-button routerLink="/new-apps">Neuerscheinungen</a>
+        <a mat-button routerLink="/deals" i18n>iOS Angebote</a>
+        <a mat-button routerLinkActive="active" routerLink="/deals-mac" i18n>Mac Angebote</a>
+        <a mat-button routerLink="/top-apps" i18n>Top-Apps</a>
+        <a mat-button routerLink="/new-apps" i18n>Neuerscheinungen</a>
         <!--<a mat-button routerLink="/watchlist" routerLinkActive="active">Watchlist</a>-->
       </div>
     </ng-container>
@@ -39,9 +39,9 @@
     <button mat-icon-button *ngIf="mobile_mode" (click)="handleMore()" aria-label="navbar button">
       <mat-icon fontSet="asn-icon">more_horiz</mat-icon>
     </button>
-    <button mat-icon-button class="navbar-button" (click)="handleShare()" aria-label="navbar button">
+    <!--<button mat-icon-button class="navbar-button" (click)="handleShare()" aria-label="navbar button">
       <mat-icon fontSet="asn-icon">share</mat-icon>
-    </button>
+    </button>-->
     <button mat-icon-button *ngIf="mobile_mode" (click)="handleAnotherSearch();search.focus()" aria-label="navbar button">
       <mat-icon fontSet="asn-icon">search</mat-icon>
     </button>

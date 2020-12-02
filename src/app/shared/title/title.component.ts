@@ -21,7 +21,6 @@ export class TitleComponent implements OnInit {
     })
     this.intercom.newTitle$.subscribe(title => {
         this.title = title;
-        console.log("Title Component", this.title);
     })
   }
 
